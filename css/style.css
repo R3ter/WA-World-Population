@@ -134,3 +134,6 @@ body {
     position: relative;
   }
 }
+canvas#barChart {
+  background-color: #f00;
+}

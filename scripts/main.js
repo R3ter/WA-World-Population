@@ -1,16 +1,11 @@
-const countriesList = document.getElementById("countriesList");
-async function getCounties(continent) {
-  startLoading();
-  const data = await fetch(
-    "https://restcountries.com/v3.1/region/" + continent + "?fields=name"
-  ).then((e) => e.json());
-  countriesList.innerHTML = data
-    .map((e) => {
-      return `<div class='continent'>${e.name.official}</div>`;
-    })
-    .join("");
-  endLoading();
-}
+const continentsList = document.getElementById("continentsList");
+
+continentsList.innerHTML = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
+  .map((e) => {
+    return `<div onclick='getCounties("${e}")' class='continent'>${e}</div>`;
+  })
+  .join("");
+
 const loading = document.getElementById("loading");
 const startLoading = () => {
   loading.style.display = "flex";
